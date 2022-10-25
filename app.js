@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 app.set('view engine', 'ejs')
 
+// mock data displayed on pages
 const posts = [
     {title: 'Title 1', body: 'Body 1' },
     {title: 'Title 2', body: 'Body 2' },
@@ -15,27 +16,32 @@ const user = {
     lastName: 'Cook',
 }
 
+// get pages
 app.get('/', (req, res) => {
     res.render('pages/index', {
         user,
         title: "Home Page"
     })
 })
-
 app.get('/articles', (req, res) => {
     res.render('pages/articles', {
         articles: posts,
         title: "Articles"
     })
 })
-
 app.get('/about', (req, res) => {
     res.render('pages/about', {
         about: posts,
         title: "About"
     })
 })
+app.get('/login', (req, res) => {
+    res.render('pages/login', {
+        title: "Login"
+    })
+})
 
+// start server
 app.listen(port, () => {
     console.log(`App listening at port ${port}`)
 })
