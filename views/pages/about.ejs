@@ -2,19 +2,21 @@
 <%- include('../partials/header') %>
 
 <body>
-    <ul>
-        <% about.forEach((about)=> { %>
-            <li>
-                <h2>
-                    <%= about.title %>
-                </h2>
-                <p>
-                    <%= about.body %>
-                </p>
-            </li>
-            <hr />
-        <% }) %>
-    </ul>
+    <div class="container">
+        <ul>
+            <% about.forEach((about)=> { %>
+                <li>
+                    <h2>
+                        <%= about.title %>
+                    </h2>
+                    <p>
+                        <%= about.body %>
+                    </p>
+                </li>
+                <hr />
+            <% }) %>
+        </ul>
+    </div>
 </body>
 
 <%- include('../partials/footer') %>

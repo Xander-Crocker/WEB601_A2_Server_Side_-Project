@@ -40,6 +40,11 @@ app.get('/login', (req, res) => {
         title: "Login"
     })
 })
+app.get('/signup', (req, res) => {
+    res.render('pages/signup', {
+        title: "Signup"
+    })
+})
 
 // start server
 app.listen(port, () => {
