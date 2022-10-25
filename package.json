@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  },
+  "name": "web601_a2_server_side_project",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xander-Crocker/WEB601_A2_Server_Side_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xander-Crocker/WEB601_A2_Server_Side_Project/issues"
+  },
+  "homepage": "https://github.com/Xander-Crocker/WEB601_A2_Server_Side_Project#readme"
+}
