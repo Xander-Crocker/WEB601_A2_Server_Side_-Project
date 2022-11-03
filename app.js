@@ -1,7 +1,27 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const cors = require("cors");
+const cookieSession = require("cookie-session");
+const db = require("./app/models");
+const Role = db.role;
+
 app.set('view engine', 'ejs')
+app.use(cors());
+
+// parse requests of content-type - application/json
+app.use(express.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+app.use(
+    cookieSession({
+    name: "web601_A2",
+    secret: "COOKIE_SECRET", // used as secret environment variable
+    httpOnly: true
+})
+);
 
 // mock data displayed on pages
 const posts = [
@@ -52,14 +72,47 @@ app.get('/cart', (req, res) => {
     })
 })
 
-// start server
-app.listen(port, () => {
-    console.log(`App listening at port ${port}`)
-})
-
 // Cart functionality
 
 // function selectLine() {
 //     var productLine = document.getElementById("mySelect").value;
 //     location.href = "?productLine=" + productLine;
 // }
+
+
+// database
+
+db.sequelize.sync({force: true}).then(() => {
+    console.log('Drop and Resync Db');
+    initial();
+});
+
+function initial() {
+    Role.create({
+        id: 1,
+        name: "user"
+    });
+    
+    Role.create({
+        id: 2,
+        name: "moderator"
+    });
+    
+    Role.create({
+        id: 3,
+        name: "admin"
+    });
+}
+
+// routes
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
+
+// set port, listen for requests
+
+
+
+// start server
+app.listen(port, () => {
+    console.log(`App listening at port ${port}`)
+})
