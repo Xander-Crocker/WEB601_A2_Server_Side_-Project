@@ -10,10 +10,10 @@ const posts = [
     {title: 'Title 3', body: 'Body 3' },
     {title: 'Title 4', body: 'Body 4' },
 ]
-
+// mock user
 const user = {
-    firstName: 'Tim',
-    lastName: 'Cook',
+    firstName: 'Xander',
+    lastName: 'Crocker',
 }
 
 // get pages
@@ -23,15 +23,15 @@ app.get('/', (req, res) => {
         title: "Home Page"
     })
 })
-app.get('/articles', (req, res) => {
-    res.render('pages/articles', {
-        articles: posts,
-        title: "Articles"
+app.get('/products', (req, res) => {
+    res.render('pages/products', {
+        products: posts,
+        title: "Products"
     })
 })
 app.get('/about', (req, res) => {
     res.render('pages/about', {
-        about: posts,
+        user,
         title: "About"
     })
 })
@@ -45,8 +45,21 @@ app.get('/signup', (req, res) => {
         title: "Signup"
     })
 })
+app.get('/cart', (req, res) => {
+    res.render('pages/cart', {
+        user,
+        title: "Cart"
+    })
+})
 
 // start server
 app.listen(port, () => {
     console.log(`App listening at port ${port}`)
 })
+
+// Cart functionality
+
+// function selectLine() {
+//     var productLine = document.getElementById("mySelect").value;
+//     location.href = "?productLine=" + productLine;
+// }

@@ -1,22 +1,10 @@
 <%- include('../partials/head') %>
 <%- include('../partials/header') %>
 
-<body>
-    <div class="container">
-        <ul>
-            <% about.forEach((about)=> { %>
-                <li>
-                    <h2>
-                        <%= about.title %>
-                    </h2>
-                    <p>
-                        <%= about.body %>
-                    </p>
-                </li>
-                <hr />
-            <% }) %>
-        </ul>
-    </div>
-</body>
+<div class="container">
+    <h1>Hi, <%= user.firstName  %> <%= user.lastName %></h1>
+    <h2>Welcome to the website</h2>
+    <p>Company information here</p>
+</div>
 
 <%- include('../partials/footer') %>
