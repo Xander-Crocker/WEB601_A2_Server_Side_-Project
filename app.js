@@ -30,7 +30,7 @@ const posts = [
     {title: 'Title 3', body: 'Body 3' },
     {title: 'Title 4', body: 'Body 4' },
 ]
-// mock user
+//mock user
 const user = {
     firstName: 'Xander',
     lastName: 'Crocker',
