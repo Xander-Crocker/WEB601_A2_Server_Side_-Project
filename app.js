@@ -17,10 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
     cookieSession({
-    name: "web601_A2",
-    secret: "COOKIE_SECRET", // used as secret environment variable
-    httpOnly: true
-})
+        name: "web601_A2",
+        secret: "COOKIE_SECRET", // used as secret environment variable
+        httpOnly: true
+    })
 );
 
 // mock data displayed on pages
@@ -30,10 +30,11 @@ const posts = [
     {title: 'Title 3', body: 'Body 3' },
     {title: 'Title 4', body: 'Body 4' },
 ]
-//mock user
+
+// Mock user
 const user = {
-    firstName: 'Xander',
-    lastName: 'Crocker',
+    firstName: '',
+    lastName: ''
 }
 
 // get pages
@@ -55,6 +56,12 @@ app.get('/about', (req, res) => {
         title: "About"
     })
 })
+app.get('/cart', (req, res) => {
+    res.render('pages/cart', {
+        user,
+        title: "Cart"
+    })
+})
 app.get('/login', (req, res) => {
     res.render('pages/login', {
         title: "Login"
@@ -65,12 +72,6 @@ app.get('/signup', (req, res) => {
         title: "Signup"
     })
 })
-app.get('/cart', (req, res) => {
-    res.render('pages/cart', {
-        user,
-        title: "Cart"
-    })
-})
 
 // Cart functionality
 
@@ -78,7 +79,6 @@ app.get('/cart', (req, res) => {
 //     var productLine = document.getElementById("mySelect").value;
 //     location.href = "?productLine=" + productLine;
 // }
-
 
 // database
 
@@ -107,10 +107,6 @@ function initial() {
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
-
-// set port, listen for requests
-
-
 
 // start server
 app.listen(port, () => {

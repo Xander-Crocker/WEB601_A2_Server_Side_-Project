@@ -60,6 +60,16 @@ BEGIN
         Quantity INT DEFAULT 0 NOT NULL,
         Total INT DEFAULT 0 NOT NULL
     );
+        
+    CREATE TABLE SessionTbl(
+		SessionID INT PRIMARY KEY auto_increment,
+		CustomerID INT NULL,
+		ProductID INT NULL,
+		CartID INT NULL,
+		FOREIGN KEY (CustomerID) REFERENCES Customers (CustomerID) ON DELETE CASCADE ON UPDATE CASCADE,
+		FOREIGN KEY (ProductID) REFERENCES Products (ProductID) ON DELETE CASCADE ON UPDATE CASCADE,
+		FOREIGN KEY (CartID) REFERENCES ShoppingCart (CartID) ON DELETE CASCADE ON UPDATE CASCADE
+	);
     
 END $$
 delimiter ;
