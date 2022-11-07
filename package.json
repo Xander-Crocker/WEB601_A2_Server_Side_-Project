@@ -9,8 +9,9 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.25.3",
-    "session": "^0.1.0"
+    "sequelize": "^6.25.4",
+    "session": "^0.1.0",
+    "sqlite3": "^5.1.2"
   },
   "name": "web601_a2_server_side_project",
   "description": "",
