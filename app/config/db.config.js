@@ -1,6 +1,6 @@
-const mysql = require('mysql2');
+//const mysql = require('sequelize');
 
-module.exports = mysql.createConnection({
+    module.exports = {
         HOST: 'localhost',
         USER: 'root',
         PASSWORD: 'Archenemy042',
@@ -12,4 +12,4 @@ module.exports = mysql.createConnection({
             acquire: 30000,
             idle: 10000
         }
-    });
+    };
